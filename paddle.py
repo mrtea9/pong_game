@@ -3,14 +3,13 @@ from turtle import Turtle
 
 class Paddle(Turtle):
 
-    def __init__(self, coord):
+    def __init__(self, position):
         super().__init__()
-        self.x, self.y = coord
         self.shape("square")
         self.color("white")
         self.turtlesize(stretch_wid=5, stretch_len=1)
         self.penup()
-        self.goto(self.x, self.y)
+        self.goto(position)
 
     def go_up(self):
         new_y = self.ycor() + 20
