@@ -27,5 +27,21 @@ while game_is_on:
     screen.update()
     ball.move()
 
+    # When the ball hits the wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce_y()
+
+    # When the ball hits the paddle
+    if ball.xcor() > 320 and ball.distance(r_paddle) < 50 or ball.xcor() < -320 and ball.distance(l_paddle) < 50:
+        ball.bounce_x()
+
+    # When the Left paddle scores
+    if ball.xcor() > 390:
+        ball.refresh()
+
+    # When the Right paddle scores
+    if ball.xcor() < -390:
+        ball.refresh()
+
 
 screen.exitonclick()
